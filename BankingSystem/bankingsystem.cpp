@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string.h> 
+#include <string> 
+#include <limits>
 
 using namespace std;
 
@@ -18,13 +19,15 @@ class BankAccount {
 
 void BankAccount::open_account(){
     cout << "Hello. Thank you for choosing to open an account with us today. What is your name?" << endl;
-    cin >> owner_name;
+    getline(cin, owner_name);
     cout << "Great, your name is: " << owner_name << endl << "Please could you write down your current address?" << endl;
-    cin >> address;
+    getline(cin, address);
     cout << address << " is a lovely area! Thanks for the information, you're all setup. You will now proceed to the main menu." << endl;
 }
 
 void BankAccount::main_menu(){
+    cout << "\n------------------------"
+         << "-------------------------\n";
     int choice;
     cout << "Hello " << owner_name << ". Welcome to the main menu. Please choose from the following options." << endl;
     cout << "Press 1 to display balance, 2 to withdraw or 3 to deposit." << endl;
@@ -42,12 +45,16 @@ void BankAccount::main_menu(){
 }
 
 void BankAccount::display_balance(){
+    cout << "\n------------------------"
+         << "-------------------------\n";
     int choice;
     cout << "Your current balance is: " << balance << endl;
     end_action();
 }
 
 void BankAccount::withdraw(){
+    cout << "\n------------------------"
+         << "-------------------------\n";
     int withdrawAmount;
     int choice;
     cout << "How much would you like to withdraw today? Please enter a multiple of 10." << endl;
@@ -58,6 +65,8 @@ void BankAccount::withdraw(){
 }
 
 void BankAccount::deposit(){
+    cout << "\n------------------------"
+         << "-------------------------\n";
     int depositAmount;
     int choice;
     cout << "How much would you like to deposit today? Please enter a multiple of 10." << endl;
@@ -74,7 +83,7 @@ void BankAccount::end_action(){
     if(choice == 1){
         main_menu();
     } else {
-        cout << "Thank you for banking with us today.";
+        cout << "Thank you for banking with Guy Brown Banking today.";
     }
 }
 
