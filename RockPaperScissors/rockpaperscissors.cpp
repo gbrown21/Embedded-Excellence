@@ -12,6 +12,7 @@ class Game {
 
     void start_game();
     void turn();
+    int get_computer_choice();
     void end_game();
 };
 
@@ -42,11 +43,7 @@ void Game::turn(){
     Sleep(1000);
     cout << "ONE!" << endl;
     Sleep(1000);
-    //Generate computer choice
-    random_device rd;  // Will be used to obtain a seed for the random number engine
-    mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-    uniform_int_distribution<> distrib(1, 3); // Define the range [0, 2]
-    randomiser = distrib(gen);
+    randomiser = get_computer_choice();
     if(randomiser == 1) {
         computer_choice = "ROCK!";
     }
@@ -66,6 +63,15 @@ void Game::turn(){
         computer_wins += 1;
         cout << "YESSS I WINNN!!" << endl << "THAT MEANS I'VE WON " << computer_wins << " GAMES, AND YOU'VE WON " << user_wins << "!!" << endl;
     }
+}
+
+int Game::get_computer_choice(){
+    //Generate computer choice
+    random_device rd;  // Will be used to obtain a seed for the random number engine
+    mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    uniform_int_distribution<> distrib(1, 3); // Define the range [0, 2]
+    int randomiser_result = distrib(gen);
+    return randomiser_result;
 }
 
 void Game::end_game(){
