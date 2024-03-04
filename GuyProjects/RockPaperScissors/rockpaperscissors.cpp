@@ -22,9 +22,9 @@ void Game::start_game(){
     cout << "Welcome to Rock, Paper, Scissors. I hope you're feeling lucky." << endl;
     cout << "How many rounds would you like to play to decide the winner? Please enter an odd number between 1 and 9:" << endl;
     while(!(cin >> best_of) || best_of < 1 || best_of > 9 || !(best_of % 2 == 1)){
-        std::cout << "Invalid input. Please enter an odd number between 1 and 9: ";
-        std::cin.clear(); // Clear the error flag
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter an odd number between 1 and 9: ";
+        cin.clear(); // Clear the error flag
+        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
     }
     cout << "Great! We will play a best of " << best_of << endl;
 }
